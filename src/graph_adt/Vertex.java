@@ -50,13 +50,16 @@ public class Vertex {
         
     }
     public void addConnection(Vertex v){
-        System.out.println("Connection Created Between " + v.getLabel() + "and " + this.getLabel());
-        if(!connections.contains(v)){
-            connections.add(v);
+        //System.out.println("Connection Created Between " + v.getLabel() + "and " + this.getLabel());
+        if(v != this){
+            if(!connections.contains(v)){
+               connections.add(v);
+            }
+            if(!v.getConnections().contains(this)){
+               v.addConnection(this);
+            }         
         }
-        if(!v.getConnections().contains(this)){
-            v.addConnection(this);
-        }
+
         
     }
 }

@@ -22,10 +22,10 @@ public class Graph_ADT {
         
         Random rand = new Random();
 
-        int [] n = new int [100000];
-        String [] l = new String [100000];
-        int [] from_vertex = new int[1000000];
-        int [] to_vertex = new int[1000000];
+        int [] n = new int [2500];
+        String [] l = new String [2500];
+        int [] from_vertex = new int[1500];
+        int [] to_vertex = new int[1500];
         
         for(int i = 0; i < n.length; i++){
             n[i] = i+1;
@@ -33,14 +33,15 @@ public class Graph_ADT {
         }
         
         for(int j = 0; j < from_vertex.length; j++){
-            from_vertex[j] = rand.nextInt(100000) + 1;
-            to_vertex[j] = rand.nextInt(100000) + 1;
+            from_vertex[j] = rand.nextInt(2500) + 1;
+            to_vertex[j] = rand.nextInt(2500) + 1;
             
         }
         System.out.println("Creating Undirected Graph.....");
         UndirectedGraph g = new UndirectedGraph(n, l);
         g.addConnections(from_vertex, to_vertex);
         g.printUndirectedGraph();
+        g.writeGraphToFile();
     }
     
     public static String IntToLetters(int value)
